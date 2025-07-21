@@ -1,0 +1,10 @@
+# Create .gitignore file with standard React exclusions
+echo "node_modules
+.env
+.DS_Store
+dist
+build
+*.log
+.cache
+.idea
+.vscode" > .gitignore

@@ -1,0 +1,48 @@
+.right-panel {
+  padding: 15px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
+  margin: 10px 0;
+}
+
+.calendar-day {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 5px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.calendar-event {
+  font-size: 0.7rem;
+  text-align: center;
+  padding: 3px;
+  grid-column: span 1;
+  background-color: #e9f5ff;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.calendar-event.empty {
+  background-color: transparent;
+}
+
+.calendar-event.marked {
+  background-color: #d4edda;
+}
+
+/* Scrollbar styling */
+.right-panel::-webkit-scrollbar {
+  width: 6px;
+}
+
+.right-panel::-webkit-scrollbar-thumb {
+  background-color: #dee2e6;
+  border-radius: 3px;
+}

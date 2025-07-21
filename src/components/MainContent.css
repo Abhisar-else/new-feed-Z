@@ -1,0 +1,104 @@
+.main-content {
+  padding: 20px;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.feed-header {
+  font-weight: 600;
+  color: #333;
+}
+
+.feed-card {
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  background-color: #f0f2f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: #495057;
+}
+
+.points-badge {
+  font-size: 0.8rem;
+  padding: 0.35em 0.65em;
+}
+
+.comments-badge {
+  font-size: 0.75rem;
+  padding: 0.25em 0.5em;
+}
+
+.comment-box {
+  border-radius: 18px;
+  background-color: #f8f9fa;
+  border: none;
+  resize: none;
+}
+
+.comment {
+  border-left: 2px solid #e9ecef;
+  padding-left: 15px;
+}
+
+.wish-link {
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.post-image {
+  max-height: 500px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.post-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.post-actions {
+  padding: 8px 0;
+  border-top: 1px solid #e9ecef;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.action-btn {
+  color: #495057;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.action-btn:hover {
+  color: #0d6efd;
+}
+
+.view-comments-btn {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Scrollbar styling */
+.main-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background-color: #dee2e6;
+  border-radius: 3px;
+}
