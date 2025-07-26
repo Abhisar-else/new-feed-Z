@@ -6,7 +6,7 @@
 .progress {
 border-radius: 20px;
 overflow: hidden;
-
+}
 .calendar-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
