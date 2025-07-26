@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CountUp from 'react-countUp';
+import CountUp from 'react-countup';
 import { Card, ListGroup, Badge, ProgressBar } from 'react-bootstrap';
 import { FaBirthdayCake, FaCalendar, FaUser , FaGem} from 'react-icons/fa';
 import './RightPanel.css';
@@ -26,19 +26,18 @@ const RightPanel = () => {
         <Card.Body>
           <div className="d-flex justify-content-between align-items-center my-2">
             <h6 className="mb-0 fw-semibold">Your Points</h6>
-           <Badge bg="primary"
-className ="rounded-pill fs-3 px-4 py-2" text- white"><FaGem className="me-1" /><CountUp end={points}
+           <Badge bg="primary" className="rounded-pill fs-3 px-4 py-2 text-white d-flex align-items-center gap-2"><FaGem/><CountUp end={points}
               duration={1.5}/>
-</Badge>
+              </Badge>
 </div>
           <div className="mb-2">
           <ProgressBar now={progress}
-          variant="success"style={{height:'8px'}}/>
+          varient="success"style={{heigth:'8px'}}/>
             <small className="text-muted">Reward goal: {rewardGoal} pts</small>
           </div>
           <div className="d-flex mt-2">
             <button className="btn btn-sm btn-outline-primary me-2" onClick={handlesend} title="Send 100 point">SEND</button>
-            <button className="btn btn-sm btn-outline-success" onClick={handleRedeem} title="Redeem 200 pointsru">REDEEM</button>
+            <button className="btn btn-sm btn-outline-success" onClick={handleRedeem} title="Redeem 200 points">REDEEM</button>
           </div>
         </Card.Body>
       </Card>
