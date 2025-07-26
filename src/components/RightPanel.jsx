@@ -1,20 +1,43 @@
-import React from 'react';
-import { Card, ListGroup, Badge } from 'react-bootstrap';
+import React, { useState } from 'react';
+import CountUp from 'react-countUp';
+import { Card, ListGroup, Badge, ProgressBar } from 'react-bootstrap';
+import { FaBirthdayCake, FaCalendar, FaUser , FaGem} from 'react-icons/fa';
 import './RightPanel.css';
 
+
 const RightPanel = () => {
+  const [points, setpoints] = useState(1284);
+  const rewardGoal = 2000;
+  const handlesend = () => {
+    if (points >= 100) {
+      setpoints(points - 100);
+    }
+    };
+    const handleRedeem = () => {
+      if (points >= 200){
+        setpoints(points - 200);
+      }
+    };
+    const progress = Math.min(Math.round(( points / rewardGoal) * 100), 100);
   return (
-    <div className="right-panel">
+    <div className="right-panel p-3">
       {/* Points Section */}
-      <Card className="mb-3">
+      <Card className="mb-4 shadow-sm border-0">
         <Card.Body>
-          <div className="d-flex justify-content-between align-items-center">
-            <span>Your Points</span>
-            <Badge bg="primary" pill>1284</Badge>
+          <div className="d-flex justify-content-between align-items-center my-2">
+            <h6 className="mb-0 fw-semibold">Your Points</h6>
+           <Badge bg="primary"
+className ="rounded-pill fs-3 px-4 py-2"style={{ color: 'white'}}/><FaGem className="me-1" /><CountUp end={1284}
+              duration={1.5}/>
+</div>
+          <div className="mb-2">
+          <ProgressBar now={progress}
+          variant="success"style={{height:'8px'}}/>
+            <small className="text-muted">Reward goal: {rewardGoal} pts</small>
           </div>
           <div className="d-flex mt-2">
-            <button className="btn btn-sm btn-outline-primary me-2">SEND</button>
-            <button className="btn btn-sm btn-outline-success">REDEEM</button>
+            <button className="btn btn-sm btn-outline-primary me-2" onClick={handlesend} title="Send 100 point">SEND</button>
+            <button className="btn btn-sm btn-outline-success" onClick={handleRedeem} title="Redeem 200 pointsru">REDEEM</button>
           </div>
         </Card.Body>
       </Card>
@@ -29,7 +52,7 @@ const RightPanel = () => {
                 {day}
               </div>
             ))}
-            <div className="calendar-event">Birthdays</div>
+            <div className="calendar-event"> < FaBirthdayCake className="m-1"/>Birthdays</div>
             <div className="calendar-event empty"></div>
             <div className="calendar-event empty"></div>
             <div className="calendar-event empty"></div>
@@ -46,8 +69,8 @@ const RightPanel = () => {
         <Card.Body>
           <ListGroup variant="flush">
             <ListGroup.Item className="d-flex justify-content-between align-items-center">
-              <div>
-                <strong>Weekly Review Meeting</strong>
+              <div >
+             <FaUser size={18}/> <strong>Weekly Review Meeting</strong>
                 <div className="text-muted small">11:00 am - 12:00 pm</div>
               </div>
               <Badge bg="light" text="dark">+6 attending</Badge>
@@ -64,7 +87,8 @@ const RightPanel = () => {
       {/* Upcoming Events */}
       <Card>
         <Card.Body>
-          <h6>Upcoming Events</h6>
+                 <h6> <FaCalendar className="m-2"/>Upcoming Events</h6>
+
           <ListGroup variant="flush">
             <ListGroup.Item>
               <div className="d-flex justify-content-between">
