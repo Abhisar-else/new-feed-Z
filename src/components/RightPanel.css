@@ -3,6 +3,9 @@
   height: 100vh;
   overflow-y: auto;
 }
+.progress {
+border-radius: 20px;
+overflow: hidden;
 
 .calendar-grid {
   display: grid;
