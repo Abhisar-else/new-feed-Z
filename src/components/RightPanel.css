@@ -1,51 +1,212 @@
 .right-panel {
   padding: 15px;
+  width: 320px;
+  min-width: 320px;
   height: 100vh;
   overflow-y: auto;
+  background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff);
 }
+
+/* Month Header */
+.month-header {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #003366;
+  margin-bottom: 6px;
+}
+
+/* Card Styling */
+.right-panel .card {
+  border: none;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease;
+}
+.right-panel .card:hover {
+  transform: translateY(-3px);
+}
+
+/* Points progress bar */
 .progress {
-border-radius: 20px;
-overflow: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: #e0e0e0;
 }
+.progress-bar {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
+
+/* Calendar grid (2 columns) */
 .calendar-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 5px;
-  margin: 10px 0;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 6px;
+  column-gap: 8px;
+  margin-top: 8px;
 }
 
+/* Calendar day card */
 .calendar-day {
-  font-size: 0.8rem;
+  background-color: #dfefff;
+  border-radius: 6px;
+  color: #003366;
+  font-weight: 500;
   text-align: center;
-  padding: 5px;
-  background-color: #f8f9fa;
-  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 42px;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1;
+  font-size: 0.63rem;
+}
+.calendar-day .day-name {
+  font-size: 0.63rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1;
+}
+.calendar-day .day-number {
+  font-size: 0.58rem;
+  font-weight: 400;
+  color: #555;
+  margin: 0;
+  margin-top: 2px;
+  line-height: 1;
 }
 
+/* Today Highlight */
+.calendar-day.today {
+  background-color: #ffecb3;
+  border: 1px solid #ffc107;
+  color: #5d4037;
+  font-weight: bold;
+}
+
+/* Birthday Highlight */
+.calendar-day.birthday {
+  background-color: #ffe0f0 !important;
+  border: 1px solid #ff69b4;
+  color: #ad1457;
+  font-weight: bold;
+}
+
+/* When a day is both today and birthday */
+.calendar-day.today.birthday {
+  background-image: linear-gradient(135deg, #ffecb3 50%, #ffe0f0 50%);
+  border: 1px solid #ff69b4;
+  color: #5d0037;
+  font-weight: bold;
+}
+
+/* Event cards like Birthdays */
 .calendar-event {
-  font-size: 0.7rem;
-  text-align: center;
-  padding: 3px;
-  grid-column: span 1;
-  background-color: #e9f5ff;
-  border-radius: 4px;
-  margin-top: 5px;
+  font-size: 0.63rem;
+  background-color: #ccf5ff;
+  border-radius: 6px;
+  color: #005c99;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+  box-sizing: border-box;
 }
-
-.calendar-event.empty {
-  background-color: transparent;
-}
-
 .calendar-event.marked {
-  background-color: #d4edda;
+  background-color: #c6f6d5;
+  color: #006644;
+  font-weight: bold;
+  cursor: pointer;
+}
+.calendar-event.empty {
+  display: none;
 }
 
-/* Scrollbar styling */
+/* No Events This Week */
+.calendar-grid .calendar-event[style*="gridColumn"] {
+  justify-content: center;
+  text-align: center;
+  font-size: 0.7rem;
+  padding: 0 10px;
+}
+
+/* "Next Week" button - center aligned */
+.next-week-wrapper {
+  margin-top: 6px;
+  display: flex;
+  justify-content: center;
+}
+.next-week {
+  background-color: #c6f6d5;
+  color: #006644;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.next-week:hover {
+  background-color: #a4ecc2;
+}
+
+/* Back toggle (in no events view) */
+.calendar-toggle-back {
+  margin-left: 10px;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+}
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+.btn-outline-success {
+  border-color: #28a745;
+  color: #28a745;
+}
+.btn-outline-success:hover {
+  background-color: #28a745;
+  color: #fff;
+}
+
+/* List items styling */
+.list-group-item {
+  border: none;
+  background-color: #f8faff;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+.list-group-item:hover {
+  background-color: #e6f0ff;
+}
+
+/* Scrollbar */
 .right-panel::-webkit-scrollbar {
   width: 6px;
 }
-
 .right-panel::-webkit-scrollbar-thumb {
-  background-color: #dee2e6;
+  background-color: #a2c2d1;
   border-radius: 3px;
 }
+
+/* Mobile responsive */
+@media (max-width: 400px) {
+  .right-panel {
+    width: 100%;
+    min-width: unset;
+    padding: 10px;
+  }
+}
+
+css file
